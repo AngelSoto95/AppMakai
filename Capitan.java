@@ -24,7 +24,7 @@ class Capitan {
     }
 
     public void mostrarInfoCapitan(){
-        System.out.println("La informacio del capitan es: Nombre: " + getNombre() +
+        System.out.println("La informacion del capitan es: Nombre: " + getNombre() +
                 ",Apellido: " + getApellido() + ",Matricula de navegacion: " + getMatriculaNavegacion());
     }
 

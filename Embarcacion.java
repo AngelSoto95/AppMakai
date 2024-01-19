@@ -5,41 +5,42 @@ import Makai.Capitan;
 public abstract class Embarcacion {
     //Atributos
     private Capitan capitan;
-    private double precioBase;
+    private int precioBase;
     private int valorAdicional;
     private int fechaFabricacion;
-    private double montoAlquiler;
-
+    private int esloraMetros;
 
     //Contructor
 
-    public Embarcacion(Capitan capitan, double precioBase, int valorAdicional, int fechaFabricacion, double montoAlquiler) {
-        this.capitan = new Capitan(capitan.nombre, capitan.apellido, capitan.matriculaNavegacion);
+    public Embarcacion(Capitan capitan, int precioBase, int valorAdicional, int fechaFabricacion, int esloraMetros) {
+        this.capitan = capitan;
         this.precioBase = precioBase;
         this.valorAdicional = valorAdicional;
         this.fechaFabricacion = fechaFabricacion;
-        this.montoAlquiler = montoAlquiler;
+        this.esloraMetros = esloraMetros;
     }
+
 
     //getters y setters
 
 
+    public int getEsloraMetros() {
+        return esloraMetros;
+    }
+
     public Capitan getCapitan() {
+
         return capitan;
     }
 
     public void setCapitan(Capitan capitan) {
+
         this.capitan = capitan;
     }
 
     public double getPrecioBase() {
 
         return precioBase;
-    }
-
-    public void setPrecioBase(int precioBase) {
-
-        this.precioBase = precioBase;
     }
 
     public int getValorAdicional() {
@@ -62,32 +63,30 @@ public abstract class Embarcacion {
         this.fechaFabricacion = fechaFabricacion;
     }
 
-    public void setPrecioBase(double precioBase) {
+    public void setPrecioBase(int precioBase) {
 
         this.precioBase = precioBase;
     }
 
-    public double getMontoAlquiler() {
-
-        return montoAlquiler;
-    }
-
-    public void setMontoAlquiler(double montoAlquiler) {
-
-        this.montoAlquiler = montoAlquiler;
-    }
-
     //Metodos
-    public abstract double calcularAlquiler();
+    public void calcularAlquiler(){
+        if (fechaFabricacion > 2020){
+            int total = 0;
+            total = precioBase + 20000;
+            System.out.println("El alquiler es: " + total);
+        }else {
+            System.out.println("El alquiler es: " + precioBase);
+        }
+    }
 
     @Override
     public String toString() {
-        return "Makai.Embarcacion{" +
+        return "Embarcacion{" +
                 "capitan=" + capitan +
                 ", precioBase=" + precioBase +
                 ", valorAdicional=" + valorAdicional +
                 ", fechaFabricacion=" + fechaFabricacion +
-                ", montoAlquiler=" + montoAlquiler +
+                ", esloraMetros=" + esloraMetros +
                 '}';
     }
 }

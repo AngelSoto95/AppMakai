@@ -5,39 +5,23 @@ import Makai.Embarcacion;
 
 public class Yate extends Embarcacion {
 
-    private String motor;
     private int cantidadCamarotes;
 
-
-    public Yate(Capitan capitan, double precioBase, int valorAdicional, int fechaFabricacion, double montoAlquiler, String motor, int cantidadCamarotes) {
-        super(capitan, precioBase, valorAdicional, fechaFabricacion, montoAlquiler);
-        this.motor = motor;
+    public Yate(Capitan capitan, int precioBase, int valorAdicional, int fechaFabricacion, int esloraMetros, int cantidadCamarotes) {
+        super(capitan, precioBase, valorAdicional, fechaFabricacion, esloraMetros);
         this.cantidadCamarotes = cantidadCamarotes;
     }
 
-    public String getMotor() {
-        return motor;
-    }
-
-    public int getCantidadCamarotes() {
-        return cantidadCamarotes;
-    }
-
-    public void comprar(){
-        System.out.println("El yate ha sido comprado con exito");
-    }
-
-    @Override
-    public double calcularAlquiler() {
-        double nuevoMontoAlquiler = getPrecioBase();
-        if (getFechaFabricacion() > 2020){
-            nuevoMontoAlquiler += 20000;
-        }
-        setMontoAlquiler(nuevoMontoAlquiler);
-        return getMontoAlquiler();
-    }
     public void mostrarInfoYate(){
         System.out.println("La informacion del Makai.Yate Camaron Sangrante es: " );
-        System.out.println("precio base: " + getPrecioBase() + " Monto alquiler: " + getMontoAlquiler() + " Fecha fabricacion : " + getFechaFabricacion() + " Motor : " + getMotor() +  " cantidad camarotes: " + getCantidadCamarotes() );
+        System.out.println("precio base: " + getPrecioBase() + " Monto alquiler: " + " Fecha fabricacion : " + getFechaFabricacion() + " Motor : "  );
     }
+
+    public void comprarYate() {
+        if (cantidadCamarotes > 7){
+            System.out.println("El yate que desea comprar es de lujo y tiene un precio de 100 mil dolares");
+        }else{
+            System.out.println("El yate que desea comprar no es considerado como lujoso y su valor es de 5 mil dolares");
+        }
+}
 }
